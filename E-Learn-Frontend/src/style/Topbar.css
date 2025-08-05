@@ -1,0 +1,27 @@
+
+.topbar {
+  background-color: #000;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-bottom: 1px solid #1f2937;
+  z-index: 1;
+}
+
+.topbar h5 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+.topbar input[type="text"] {
+  background-color: #1e293b;
+  border: 1px solid #374151;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 250px;
+}
