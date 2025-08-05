@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Landing from "./pages/Landing";
+import Register from "./pages/Register";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );
