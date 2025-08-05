@@ -7,6 +7,7 @@ import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/student/Dashboard";
+import CourseDetails from "./pages/student/CourseDetails";
 
 
 export default function App() {
@@ -18,6 +19,8 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/student/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/course/:id" element={<ProtectedRoute><CourseDetails /></ProtectedRoute>} />
+
       </Routes>
     </Router>
   );
