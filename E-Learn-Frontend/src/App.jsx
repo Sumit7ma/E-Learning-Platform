@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/student/Dashboard";
+import CourseDetails from "./pages/student/CourseDetails";
 
 import AdminDashboard from "./pages/AdminDashboard";
 
@@ -30,6 +31,8 @@ export default function App() {
         <Route path="/reset-password/:token" element={<ResetPassword />} />
 
         <Route path="/student/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/course/:id" element={<ProtectedRoute><CourseDetails /></ProtectedRoute>} />
+
       </Routes>
     </Router>
   );
