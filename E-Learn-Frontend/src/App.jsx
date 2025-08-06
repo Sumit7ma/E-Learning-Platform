@@ -20,6 +20,10 @@ import Settings from "./pages/student/Settings";
 
 import AdminDashboard from "./pages/AdminDashboard";
 
+import RoleRedirector from "./routes/RoleRedirector";
+import ProtectedRoute from "./routes/ProtectedRoute";
+
+
 
 export default function App() {
   return (
