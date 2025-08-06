@@ -6,7 +6,7 @@ import "../../style/Settings.css";
 
 export default function Settings() {
   const [form, setForm] = useState({ name: "", email: "" });
-
+ 
   // Fetch user from backend on mount
   useEffect(() => {
     const token = localStorage.getItem("token");
