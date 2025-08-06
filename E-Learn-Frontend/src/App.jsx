@@ -7,8 +7,11 @@ import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/student/Dashboard";
+
 import CourseDetails from "./pages/student/CourseDetails";
 import EnrolledCourses from "./pages/student/EnrolledCourses";
+import LecturePlayer from "./pages/student/LecturePlayer";
+
 
 
 
@@ -23,7 +26,7 @@ export default function App() {
         <Route path="/student/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/course/:id" element={<ProtectedRoute><CourseDetails /></ProtectedRoute>} />
         <Route path="/student/enrollments" element={<ProtectedRoute><EnrolledCourses /></ProtectedRoute>} />        
-
+       <Route path="/student/lecture/:courseId" element={<ProtectedRoute><LecturePlayer /></ProtectedRoute>} /> 
       
 
       </Routes>
