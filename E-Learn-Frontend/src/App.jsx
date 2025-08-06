@@ -11,6 +11,10 @@ import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/student/Dashboard";
 
 
+import RoleRedirector from "./routes/RoleRedirector";
+import ProtectedRoute from "./routes/ProtectedRoute";
+
+
 
 export default function App() {
   return (
