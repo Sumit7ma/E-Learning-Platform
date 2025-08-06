@@ -14,6 +14,7 @@ import Dashboard from "./pages/student/Dashboard";
 import CourseDetails from "./pages/student/CourseDetails";
 import EnrolledCourses from "./pages/student/EnrolledCourses";
 import LecturePlayer from "./pages/student/LecturePlayer";
+import Settings from "./pages/student/Settings";
 
 
 
@@ -39,7 +40,8 @@ export default function App() {
         <Route path="/course/:id" element={<ProtectedRoute><CourseDetails /></ProtectedRoute>} />
         <Route path="/student/enrollments" element={<ProtectedRoute><EnrolledCourses /></ProtectedRoute>} />        
        <Route path="/student/lecture/:courseId" element={<ProtectedRoute><LecturePlayer /></ProtectedRoute>} /> 
-      
+        <Route path="/student/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+
 
       </Routes>
     </Router>
