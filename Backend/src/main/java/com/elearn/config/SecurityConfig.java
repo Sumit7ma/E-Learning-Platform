@@ -57,6 +57,7 @@ public class SecurityConfig {
             	        "/webjars/**",
             	        "/api/courses/**"  
             	    ).permitAll()
+            	    .requestMatchers("/api/student/payment/").authenticated()
             	    .requestMatchers("/api/instructor/**").hasRole("INSTRUCTOR")
             	    .anyRequest().authenticated()
             	)
