@@ -1,23 +1,24 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { getTokenPayload } from "../utils/storage";
+import { jwtDecode } from "jwt-decode";
 
-export default function RoleRedirector() {
-  const navigate = useNavigate();
+export const saveToken = (token) => {
+  localStorage.setItem("courso_token", token);
+};
 
-  useEffect(() => {
-    const payload = getTokenPayload(); 
+export const getToken = () => {
+  return localStorage.getItem("courso_token");
+};
 
-    if (payload?.role === "ROLE_STUDENT") {
-      navigate("/student/dashboard");
-    } else if (payload?.role === "ROLE_INSTRUCTOR") {
-      navigate("/instructor-dashboard");
-    } else if (payload?.role === "ROLE_ADMIN") {
-      navigate("/admin-dashboard"); 
-    } else {
-      navigate("/login");
-    }
-  }, [navigate]);
+export const removeToken = () => {
+  localStorage.removeItem("courso_token");
+};
 
-  return null;
-}
+export const getTokenPayload = () => {
+  const token = getToken();
+  if (!token) return null;
+
+  try {
+    return jwtDecode(token);
+  } catch {
+    return null;
+  }
+};

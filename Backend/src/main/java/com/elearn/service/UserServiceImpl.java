@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
         emailService.sendSimpleEmail(
             user.getEmail(),
             "Welcome to Courso!",
-            "Hi " + user.getName() + ",\n\nWelcome to Courso! \nYou can now login and begin your journey.\n\nThanks,\nThe Courso Team"
+            "Hi " + user.getName() + ",\n\nWelcome to Courso! 🎉\nYou can now login and begin your journey.\n\nThanks,\nThe Courso Team"
         );
 
         return generateJwt(user);

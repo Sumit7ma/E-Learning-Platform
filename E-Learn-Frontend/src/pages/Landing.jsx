@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import "../style/Landing.css";
-import icon from "../assets/icon.png"; 
+import icon from "../assets/icon.png"; // ✅ Ensure this file exists
+
 import {
   FaLaptopCode,
   FaChartLine,
@@ -40,7 +41,7 @@ export default function Landing() {
     <>
       <Navbar />
       <div className="landing-root">
-       
+        {/* Background grid animation */}
         <div className="animated-bg"></div>
 
         <section className="landing-hero">

@@ -23,56 +23,46 @@ export default function AllCourses() {
     course.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  return (
-    <div className="dashboard-layout">
-      <Sidebar />
+ return (
+  <div className="dashboard-layout">
+    <Sidebar />
 
-      <div className="dashboard-main">
-        <div className="page-animated fade-in-up">
-
-          
-          <div className="breadcrumb">
-            <span>Dashboard</span> / <span>All Courses</span>
-          </div>
-
-          
-          <div className="search-bar glow-border">
-            <input
-              type="text"
-              placeholder="Search by title, language or level"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <i className="fa fa-search"></i>
-          </div>
-
-          
-          <div className="course-grid-wrapper stagger-fade">
-            {filteredCourses.map((course, index) => (
-              <div
-                className="course-grid-item fade-item"
-                key={course.id}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <CourseBlock
-                  image={
-                    course.thumbnail
-                      ? `http://localhost:8080/uploads/${course.thumbnail}`
-                      : "https://via.placeholder.com/300x160?text=No+Image"
-                  }
-                  lang={course.language || "N/A"}
-                  badge={course.level || "Premium"}
-                  title={course.title}
-                  desc={course.description}
-                  teacherName={course.instructorName}
-                />
-              </div>
-            ))}
-          </div>
-
+    <div className="dashboard-main">
+      <div className="topbar">
+        <div className="breadcrumb">
+          <span>Dashboard</span> / <span>All Courses</span>
+        </div>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search by title, language or level"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <i className="fa fa-search"></i>
         </div>
       </div>
-    </div>
-  );
-}
 
+      
+      <div className="course-grid-wrapper">
+        {filteredCourses.map((course) => (
+          <CourseBlock
+            key={course.id}
+            image={
+              course.thumbnail
+                ? `http://localhost:8080/uploads/${course.thumbnail}`
+                : "https://via.placeholder.com/300x160?text=No+Image"
+            }
+            lang={course.language || "N/A"}
+            badge={course.level || "Premium"}
+            title={course.title}
+            desc={course.description}
+            teacherName={course.instructorName}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+}

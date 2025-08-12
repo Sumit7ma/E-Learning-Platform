@@ -39,12 +39,12 @@ export default function InstructorDashboard() {
     <div className="dashboard-layout">
       <Sidebar />
       <div className="dashboard-main">
-        
+      
         <div className="breadcrumb-nav">
           <span>Dashboard</span> <span className="slash">/</span> <span>Courses</span>
         </div>
 
-    
+        
         <div className="search-bar-container">
           <input
             type="text"
@@ -56,7 +56,7 @@ export default function InstructorDashboard() {
           <FaSearch className="search-icon" />
         </div>
 
-
+       
         <div className="courses-container">
           {filteredCourses.map((course) => (
             <CourseBlock

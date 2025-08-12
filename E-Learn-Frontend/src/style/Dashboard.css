@@ -21,8 +21,7 @@
   gap: 1.5rem;
   padding: 0 0.5rem; 
   scroll-snap-type: x mandatory;
-  scrollbar-width: none; 
-}
+  scrollbar-width: none;
 
 .horizontal-scroll-wrapper::-webkit-scrollbar {
   display: none; 
@@ -79,4 +78,5 @@
 
 .course-button {
   width: 100%;
+}
 }

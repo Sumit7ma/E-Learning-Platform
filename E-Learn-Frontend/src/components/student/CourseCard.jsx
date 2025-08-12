@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../api/axios"; // Axios with token
+import api from "../../api/axios"; // ✅ Axios with token
 
 export default function CourseCard({ course, onView }) {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function CourseCard({ course, onView }) {
   const handleEnroll = async () => {
     try {
       await api.post(`/student/enroll/${course.id}`);
-      alert("Enrolled successfully!");
+      alert("✅ Enrolled successfully!");
       navigate("/student/enrollments");
     } catch (err) {
       alert(err.response?.data?.message || "Enrollment failed.");
@@ -44,7 +44,7 @@ export default function CourseCard({ course, onView }) {
           </button>
         )}
 
-        {/* Only show Enroll if student is logged in and not already enrolled */}
+        {/* ✅ Only show Enroll if student is logged in and not already enrolled */}
         {!onView && user?.role === "ROLE_STUDENT" && (
           <button className="btn btn-success mt-2" onClick={handleEnroll}>
             Enroll Now

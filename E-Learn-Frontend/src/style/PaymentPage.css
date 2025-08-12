@@ -1,0 +1,15 @@
+.payment-buttons {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.dashboard-main-content h2 {
+  color: #60a5fa;
+}
+
+.dashboard-main-content p {
+  font-size: 1rem;
+  color: #cbd5e1;
+}

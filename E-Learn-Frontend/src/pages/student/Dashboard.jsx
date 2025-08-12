@@ -38,7 +38,7 @@ export default function Dashboard() {
           <p className="text-white text-center">No courses found.</p>
         ) : (
           <>
-        
+            
             <div className="pagination-controls mb-3">
               <button
                 onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
@@ -59,7 +59,7 @@ export default function Dashboard() {
               </button>
             </div>
 
-          
+            
             <div className="horizontal-scroll-wrapper">
               {visibleCourses.map((course) => (
                 <div key={course.id} className="course-slide-card">

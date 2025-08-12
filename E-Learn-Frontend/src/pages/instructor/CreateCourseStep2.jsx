@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Sidebar from "../../components/instructor/Sidebar";
 import Topbar from "../../components/instructor/Topbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import instructorAxios from "../../api/instructorAxios";
-import "../../style/CreateCourseStep2.css";
-
 
 export default function CreateCourseStep2() {
+  const { state } = useLocation();
+  const courseType = state?.type || "COURSE";
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -16,8 +17,7 @@ export default function CreateCourseStep2() {
     language: "",
     level: "Beginner",
     thumbnail: null,
-    price: "",
-    tag: "",
+    type: courseType,
   });
 
   const [uploading, setUploading] = useState(false);
@@ -31,29 +31,27 @@ export default function CreateCourseStep2() {
     }
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    setUploading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setUploading(true);
 
-    const payload = new FormData();
-    for (const key in formData) {
-      payload.append(key, formData[key]);
+      const payload = new FormData();
+      for (const key in formData) {
+        payload.append(key, formData[key]);
+      }
+
+      const res = await instructorAxios.post("/instructor/courses", payload);
+      const courseId = res.data.id;
+
+      navigate(`/instructor/course/${courseId}`);
+    } catch (err) {
+      alert("Failed to create course.");
+      console.error(err);
+    } finally {
+      setUploading(false);
     }
-
-    const res = await instructorAxios.post("/instructor/courses", payload);
-
-    
-    navigate("/instructor/manage-courses");
-
-  } catch (err) {
-    alert("Failed to create course.");
-    console.error(err);
-  } finally {
-    setUploading(false);
-  }
-};
-
+  };
 
   return (
     <div className="d-flex" style={{ backgroundColor: "#0b0f19", minHeight: "100vh" }}>
@@ -113,7 +111,6 @@ const handleSubmit = async (e) => {
                   onChange={handleChange}
                 />
               </div>
-
               <div className="col-md-6">
                 <label className="form-label">Level</label>
                 <select
@@ -126,33 +123,6 @@ const handleSubmit = async (e) => {
                   <option>Intermediate</option>
                   <option>Advanced</option>
                 </select>
-              </div>
-            </div>
-
-            <div className="mb-3 row">
-              <div className="col-md-6">
-                <label className="form-label">Course Price (INR)</label>
-                <input
-                  type="number"
-                  className="form-control bg-dark text-white"
-                  name="price"
-                  value={formData.price}
-                  onChange={handleChange}
-                  required
-                  min="0"
-                />
-              </div>
-
-              <div className="col-md-6">
-                <label className="form-label">Tag / Category</label>
-                <input
-                  type="text"
-                  className="form-control bg-dark text-white"
-                  name="tag"
-                  value={formData.tag}
-                  onChange={handleChange}
-                  placeholder="e.g., Web Development, Business"
-                />
               </div>
             </div>
 

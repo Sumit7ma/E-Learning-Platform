@@ -42,9 +42,9 @@ export default function AddCourse() {
           Authorization: `Bearer ${token}`,
         },
       });
-      setMessage("✅ Course created successfully!");
+      setMessage(" Course created successfully!");
     } catch (err) {
-      const error = err.response?.data?.message || "❌ Course creation failed.";
+      const error = err.response?.data?.message || " Course creation failed.";
       setMessage(error);
     }
   };

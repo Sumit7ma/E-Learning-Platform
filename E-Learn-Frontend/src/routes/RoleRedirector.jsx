@@ -7,6 +7,7 @@ export default function RoleRedirector() {
 
   useEffect(() => {
     const payload = getTokenPayload(); 
+
     if (payload?.role === "ROLE_STUDENT") {
       navigate("/student/dashboard");
     } else if (payload?.role === "ROLE_INSTRUCTOR") {

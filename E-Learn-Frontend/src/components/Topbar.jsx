@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "../style/Topbar.css";
+import "../style/Topbar.css"; 
 
 export default function Topbar({ search, setSearch }) {
   const location = useLocation();

@@ -35,7 +35,7 @@ export default function CourseDetails() {
     instructorAxios
       .post(`/courses/${id}/sections/${selectedSectionId}/lectures`, formData)
       .then(() => {
-        alert("✅ Lecture uploaded");
+        alert(" Lecture uploaded");
         setLectureTitle("");
         setLectureFile(null);
         setSelectedSectionId(null);

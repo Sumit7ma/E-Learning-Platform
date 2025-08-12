@@ -25,7 +25,7 @@ export default function CourseDetails() {
         <Topbar title={course.title} />
 
         <div className="course-details-content">
-      
+          
           <div className="course-info-area">
             <img
               src={
@@ -48,7 +48,7 @@ export default function CourseDetails() {
             <h5 className="mt-3">Instructor: {course.instructorName}</h5>
           </div>
 
-        
+         
           <div className="section-list">
             <h4 className="text-white">Buy this course</h4>
             <h3 className="text-success">₹{course.price}</h3>
