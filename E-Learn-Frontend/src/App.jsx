@@ -32,7 +32,7 @@ import CreateCourseStep2 from "./pages/instructor/CreateCourseStep2";
 import PaymentPage from "./pages/student/PaymentPage";
 import PaymentSuccess from "./pages/student/PaymentSuccess";
 import PaymentFail from "./pages/student/PaymentFail";
-
+import PaymentHistory from "./pages/student/PaymentHistory";
 
 
 
@@ -78,6 +78,9 @@ export default function App() {
         <Route path="/student/payment/:id" element={<ProtectedRoute><PaymentPage /></ProtectedRoute>} />
         <Route path="/student/payment/success/:id" element={<ProtectedRoute><PaymentSuccess /></ProtectedRoute>} />
         <Route path="/student/payment/fail/:id" element={<ProtectedRoute><PaymentFail /></ProtectedRoute>} />
+         <Route path="/student/payment/cancel/:id" element={<ProtectedRoute><PaymentFail /></ProtectedRoute>} />
+         <Route path="/student/enrolled" element={<Navigate to="/student/enrollments" replace />} />
+         <Route path="/student/payments" element={<ProtectedRoute><PaymentHistory /></ProtectedRoute>} />
 
        
         <Route path="*" element={<Navigate to="/login" />} />

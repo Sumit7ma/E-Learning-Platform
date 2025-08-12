@@ -4,17 +4,15 @@ import Sidebar from "../../components/student/Sidebar";
 import "../../style/PaymentPage.css";
 
 export default function PaymentPage() {
-  const { id } = useParams(); 
+  const { id } = useParams(); // courseId
   const navigate = useNavigate();
 
   const handlePayment = () => {
-   
     navigate(`/student/payment/success/${id}`);
   };
 
   const handleCancel = () => {
-   
-    navigate(`/student/payment/cancel/${id}`);
+    navigate(`/student/payment/fail/${id}`);
   };
 
   return (

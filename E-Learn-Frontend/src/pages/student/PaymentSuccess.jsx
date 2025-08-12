@@ -4,28 +4,25 @@ import api from "../../api/axios";
 import Sidebar from "../../components/student/Sidebar";
 
 export default function PaymentSuccess() {
-  const { id } = useParams();
+  const { id } = useParams(); // courseId
   const navigate = useNavigate();
-  const [status, setStatus] = useState("processing");
+  const [status, setStatus] = useState("processing"); // processing | success | failed
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      
-      api.post(`/student/payment/success/${id}`)
-        .then(() => {
-          setStatus("success");
+    let mounted = true; 
 
-          setTimeout(() => {
-            alert("✅ Payment successful! You are now enrolled in the course.");
-            navigate("/student/enrollments");
-          }, 1000);
-        })
-        .catch(() => {
-          setStatus("failed");
-        });
-    }, 4000); 
+    api.post(`/student/payment/success/${id}`)
+      .then(() => {
+        if (!mounted) return;
+        setStatus("success");
+        setTimeout(() => navigate("/student/enrollments"), 1000);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setStatus("failed");
+      });
 
-    return () => clearTimeout(timer);
+    return () => { mounted = false; };
   }, [id, navigate]);
 
   return (
@@ -34,18 +31,16 @@ export default function PaymentSuccess() {
       <div className="dashboard-main-content text-white">
         {status === "processing" && (
           <>
-            <h2>Processing Payment...</h2>
-            <p>Please wait while we confirm your payment.</p>
-          </>
-        )}
-
-        {status === "success" && (
-          <>
-            <h2 className="text-success"> Payment Successful</h2>
+            <h2>⏳ Processing Payment...</h2>
             <p>Enrolling you in the course...</p>
           </>
         )}
-
+        {status === "success" && (
+          <>
+            <h2 className="text-success">Payment Successful</h2>
+            <p>Redirecting to your Enrollments...</p>
+          </>
+        )}
         {status === "failed" && (
           <>
             <h2 className="text-danger"> Payment Failed</h2>
