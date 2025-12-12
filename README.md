@@ -50,3 +50,5 @@ Update application.properties with your credentials
 🌐 Run Frontend
 
 Open index.html in browser or use a live server. 
+
+If you like this project, don’t forget to ⭐ star the repository.
